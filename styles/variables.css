@@ -1,0 +1,50 @@
+/* styles/variables.css */
+
+:root {
+  /* Переменные с именами шрифтов */
+  --font-family-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-accent: 'PressStart2P', 'Courier New', monospace;
+  
+  /* Переменные для весов вариативного шрифта */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  
+  /* Переменные для шапки */
+  --header-width: clamp(320px, 100%, 1440px);
+  --header-padding: clamp(20px, 5vw, 40px);
+  --header-logo-size: clamp(24px, 4vw, 48px);
+  --header-title-size: clamp(32px, 6vw, 64px);
+
+  /* Переменные для карточек */
+  --card-width: clamp(320px, 100%, 800px);
+  --card-padding: clamp(20px, 4vw, 30px);
+  --card-gap: clamp(30px, 5vw, 50px);
+
+  /* Переменные для лейбла */
+  --label-text-color: #fff;
+  --label-stroke-color: #000;
+  --label-bg-color: transparent;
+
+  /* Переменные для фона */
+  --bg-image: 
+    repeating-linear-gradient(90deg, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(180deg, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
+    linear-gradient(180deg, #e7e7e7 0%, #1a1a1a 100%);
+
+    /* Переменные для кнопок */
+  --button-text-color: #fff;
+  --button-bg-color: #000;
+  --button-focus-shadow: 2px 2px 0 0 #000;
+  --button-focus-outline: 2px solid #000;
+  --button-transition-fast: 0.3s ease;
+  --button-transition-slow: 0.5s ease-in-out;
+--button-bg-light: #fff;     
+--button-bg-dark: #000;      
+--button-text-light: #fff;   
+--button-text-dark: #000;    
+--button-border-color: #000;
+
+/* Переменные для анимации сердца */
+--contour-color: #000;
+--animation-fill-color: #f00;
+}

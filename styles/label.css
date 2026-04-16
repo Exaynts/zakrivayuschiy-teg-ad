@@ -1,0 +1,29 @@
+/* Лейбл поверх изображения */
+.card__label {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin: 0;
+  padding: 4px 12px;
+  font-family: var(--font-family-accent);
+  font-size: clamp(12px, 3vw, 16px);
+  color: var(--label-text-color);
+  background-color: var(--label-bg-color);
+  mix-blend-mode: hard-light;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+  text-shadow: 
+    -1px -1px 0 var(--label-stroke-color),
+    1px -1px 0 var(--label-stroke-color),
+    -1px 1px 0 var(--label-stroke-color),
+    1px 1px 0 var(--label-stroke-color);
+}
+
+@supports (-webkit-text-stroke: 1px var(--label-stroke-color)) or (text-stroke: 1px var(--label-stroke-color)) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--label-stroke-color);
+    text-stroke: 1px var(--label-stroke-color);
+    text-shadow: none;
+  }
+}

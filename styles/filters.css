@@ -1,0 +1,25 @@
+/* Фильтры для карточек */
+.card__image--blur {
+  filter: blur(2px);
+}
+.card__image--bright-contrast {
+  filter: brightness(1.2) contrast(1.3);
+}
+.card__image--grayscale {
+  filter: grayscale(0.8);
+}
+.card__image--saturate {
+  filter: saturate(2.5);
+}
+.card__image--sepia {
+  filter: sepia(0.6);
+}
+.card__image--multiple {
+  filter: invert(0.15) hue-rotate(90deg);
+}
+.card__image--darken {
+  filter: brightness(0.7) contrast(1.1);
+}
+.card__image--soft {
+  filter: blur(1px) sepia(0.3);
+}

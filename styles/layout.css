@@ -1,0 +1,80 @@
+/* ========== СЕКЦИЯ С КАРТОЧКАМИ ========== */
+
+.cards-section {
+  width: var(--card-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+  box-sizing: border-box;
+}
+
+.cards-section--full-width {
+  width: 100%;
+}
+
+/* ========== КАРТОЧКА ========== */
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== ИЗОБРАЖЕНИЕ КАРТОЧКИ ========== */
+
+.card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+/* Обёртка для изображения */
+.card__image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Затемнение изображения для лучшей читаемости лейбла */
+.card__image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ========== КОНТЕНТ КАРТОЧКИ ========== */
+
+.card__content {
+  padding: var(--card-padding);
+}
+
+.card__title {
+  font-family: var(--font-family-main);
+  font-variation-settings: 'wght' var(--font-weight-bold);
+  font-size: clamp(20px, 4vw, 28px);
+  margin-bottom: 16px;
+}
+
+.card__text {
+  font-family: var(--font-family-main);
+  font-variation-settings: 'wght' var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.card__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  align-items: center;
+}

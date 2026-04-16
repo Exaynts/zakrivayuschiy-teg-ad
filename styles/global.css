@@ -1,0 +1,120 @@
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  font-family: var(--font-family-main);
+  font-variation-settings: 'wght' var(--font-weight-regular);
+  margin: 0;
+  padding: 0;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.global-save-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 60px;
+  width: var(--card-width);
+}
+
+.dialog {
+  margin: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+  }
+}
+
+@media (width <= 375px) {
+  
+  .header {
+    width: 100%;
+    padding: 20px 16px;
+  }
+  
+  .header__logo {
+    font-size: 24px;
+  }
+  
+  .header__title {
+    font-size: 28px;
+  }
+  
+  .cards-section {
+    width: 100%;
+    padding: 16px;
+    gap: 30px;
+  }
+  
+  .card__content {
+    padding: 20px;
+  }
+  
+  .card__text {
+    font-size: 14px;
+  }
+  
+  .card__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .like-button,
+  .save-button {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .card__label {
+    top: 12px;
+    right: 12px;
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+  
+  .dialog {
+    width: 85%;
+    max-width: 300px;
+  }
+  
+  .dialog__container {
+    padding: 20px;
+    gap: 15px;
+  }
+  
+  .dialog__icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .dialog__title {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .dialog__button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

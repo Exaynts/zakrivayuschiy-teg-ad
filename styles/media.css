@@ -1,0 +1,13 @@
+/* ========== МЕДИАЗАПРОСЫ ========== */
+
+@media (max-width: 480px) {
+  .cards-section {
+    gap: 25px;
+  }
+  .card {
+    border-radius: 6px;
+  }
+  .card__text {
+    line-height: 1.4;
+  }
+}
