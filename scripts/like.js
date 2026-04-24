@@ -5,9 +5,9 @@ document.querySelectorAll('.like-wrapper').forEach(wrapper => {
   const buttonText = likeButton.querySelector('.button-text');
 
   const toggleLike = () => {
-    // Переключаем класс is-liked на иконке
-    likeIcon.classList.toggle('is-liked');
-    buttonText.textContent = likeIcon.classList.contains('is-liked') ? 'Unlike' : 'Like';
+    // Переключаем класс liked на обёртке (соответствует CSS)
+    wrapper.classList.toggle('liked');
+    buttonText.textContent = wrapper.classList.contains('liked') ? 'Unlike' : 'Like';
   };
 
   likeButton.addEventListener('click', toggleLike);

@@ -21,15 +21,15 @@
   --card-gap: clamp(30px, 5vw, 50px);
 
   /* Переменные для лейбла */
-  --label-text-color: #fff;
-  --label-stroke-color: #000;
+  --label-text-color: #000;
+  --label-stroke-color: #fff;
   --label-bg-color: transparent;
 
   /* Переменные для фона */
   --bg-image: 
-    repeating-linear-gradient(90deg, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(180deg, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
-    linear-gradient(180deg, #e7e7e7 0%, #1a1a1a 100%);
+    repeating-linear-gradient(90deg, #fff 0px, #fff 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(180deg, #fff 0px, #fff 2px, transparent 2px, transparent 4px),
+    linear-gradient(180deg, #fff 0%, #000 100%);
 
     /* Переменные для кнопок */
   --button-text-color: #fff;

@@ -2,38 +2,40 @@
 
 /* Резиновая секция шапки */
 .header {
-  width: var(--header-width);
+  width: 700px;
+  height: 368px;
   margin: 0 auto;
-  padding: var(--header-padding);
-  
-  /* Растяжение на всю ширину на мобильных устройствах */
+  background-color: #fff;
+  border: 2px solid #000;
   box-sizing: border-box;
-}
-
-/* Дополнительный класс для мобильной версии */
-.header--full-width {
-  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* Резиновый логотип */
 .header__logo {
-  font-size: var(--header-logo-size);
+  font-size: 65px;
   font-family: var(--font-family-accent);
-  margin-bottom: clamp(16px, 3vw, 24px);
-}
-
-/* Резиновый заголовок */
-.header__title {
-  font-size: var(--header-title-size);
-  font-weight: var(--font-weight-bold);
-  font-family: var(--font-family-main);
-  font-variation-settings: 'wght' var(--font-weight-bold);
   margin: 0;
   line-height: 1.2;
 }
 
-/* Резиновые отступы */
-.header__content {
-  padding-top: clamp(10px, 2vw, 20px);
-  padding-bottom: clamp(10px, 2vw, 20px);
+.header__logo h1 {
+  margin: 0;
+  font-size: 65px;
+  font-weight: normal;
+}
+
+/* Резиновый заголовок */
+.header__title {
+  font-size: 23px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-accent);
+  font-variation-settings: 'wght' var(--font-weight-bold);
+  margin: 0;
+  line-height: 1.2;
 }

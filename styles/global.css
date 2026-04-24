@@ -3,6 +3,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: linear-gradient(to bottom #e7e7e7, #1a1a1a);
 }
 
 .page {
@@ -10,7 +11,10 @@ body {
   font-variation-settings: 'wght' var(--font-weight-regular);
   margin: 0;
   padding: 0;
-  background-image: var(--bg-image);
+  background-image: 
+    repeating-linear-gradient(90deg, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(180deg, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
+    linear-gradient(0deg, #1a1a1a 0%, #e7e7e7 100%);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
