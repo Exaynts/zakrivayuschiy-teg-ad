@@ -1,1 +1,1 @@
-https://github.com/Exaynts/zakrivayuschiy-teg-ad/tree/main
+https://github.com/Exaynts/zakrivayuschiy-teg-ad
