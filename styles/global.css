@@ -3,7 +3,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(to bottom #e7e7e7, #1a1a1a);
 }
 
 .page {
