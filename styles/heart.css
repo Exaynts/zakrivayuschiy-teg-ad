@@ -1,24 +1,5 @@
 /* ========== ИКОНКА СЕРДЦА (LIKE) ========== */
 
-/* Регистрируем переменные как анимируемые цвета */
-@property --heart-core {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: transparent;
-}
-
-@property --heart-body {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: transparent;
-}
-
-@property --heart-contour {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: var(--contour-color);
-}
-
 .like-wrapper {
   display: flex;
   align-items: center;
@@ -31,85 +12,69 @@
   display: block;
   position: relative;
   cursor: pointer;
-
-  /* Исходные значения переменных (переопределяют initial-value, чтобы работало и без @property) */
-  --heart-core: transparent;
-  --heart-body: transparent;
-  --heart-contour: var(--contour-color);
-
-  /* Анимация самих переменных — это и даст плавное изменение fill */
-  transition: 
-    --heart-core 0.3s ease,
-    --heart-body 0.3s ease,
-    --heart-contour 0.3s ease;
+  transform-origin: center center;
 }
 
-/* ---------- HOVER (чёрный) ---------- */
-.like-icon:hover {
-  --heart-core: var(--contour-color);
-  --heart-body: var(--contour-color);
-  /* Задержки для отдельных частей при входе */
-  transition: 
-    --heart-core 0.3s ease,           /* без задержки */
-    --heart-body 0.3s ease 0.05s;     /* с задержкой */
+/* Базовые цвета и переходы */
+.like-icon .contour {
+  fill: var(--contour-color, #000);
+  transition: fill 0.3s ease;
 }
 
-/* Возврат после hover */
-.like-icon:not(:hover) {
-  transition: 
-    --heart-core 0.3s ease 0.03s,     /* задержка при возврате */
-    --heart-body 0.3s ease;           /* без задержки */
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s ease 0.03s;
 }
 
-/* ---------- ACTIVE (зажатие) – красный ---------- */
-.like-icon:active {
-  --heart-core: var(--animation-fill-color);
-  --heart-body: var(--animation-fill-color);
-  transform: scale(0.92);
-  transition: 
-    transform 0.1s ease-in-out,
-    --heart-core 0.3s ease,
-    --heart-body 0.3s ease 0.05s;
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s ease 0.05s;
 }
 
-.like-icon:active:not(:hover) {
-  /* Если active без hover — тоже анимируем */
-  transition: 
-    --heart-core 0.3s ease,
-    --heart-body 0.3s ease 0.05s;
+.like-icon .sparks {
+  opacity: 0;
 }
 
-/* Возврат после active (если нет лайка) – восстанавливаем базовые переходы */
-.like-icon:not(:active) {
-  transition: 
-    --heart-core 0.3s ease 0.03s,
-    --heart-body 0.3s ease;
+/* HOVER — плавное затемнение контура и заливки */
+.like-icon:hover .core {
+  fill: var(--contour-color, #000);
+  transition: fill 0.3s ease 0.03s;
 }
 
-/* ---------- СОСТОЯНИЕ ЛАЙКА (класс .liked на .like-wrapper) ---------- */
-.like-wrapper.liked .like-icon {
-  --heart-core: var(--animation-fill-color);
-  --heart-body: var(--animation-fill-color);
-  --heart-contour: var(--animation-fill-color);
-  transition: 
-    --heart-core 0.3s ease,
-    --heart-body 0.3s ease 0.05s,
-    --heart-contour 0.3s ease 0.06s;
+.like-icon:hover .main-body {
+  fill: var(--contour-color, #000);
+  transition: fill 0.3s ease 0.05s;
 }
 
-/* Масштабирование сердца */
+/* ACTIVE — красный цвет при нажатии */
+.like-icon:active .core {
+  fill: var(--animation-fill-color, #f00);
+  transition: fill 0.1s ease;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color, #f00);
+  transition: fill 0.1s ease;
+}
+
+/* СОСТОЯНИЕ ЛАЙКА (добавляется класс .liked на .like-wrapper) */
+.like-wrapper.liked .like-icon .contour,
+.like-wrapper.liked .like-icon .core,
+.like-wrapper.liked .like-icon .main-body {
+  fill: var(--animation-fill-color, #f00);
+  transition: fill 0.3s ease;
+}
+
+
+/* Анимация масштабирования сердца при лайке */
 .like-wrapper.liked .like-icon .heart {
   animation: heart-scale 0.3s ease-in 0.1s forwards;
+  transform-origin: center center;
 }
 
-/* Искры */
+/* Анимация искр при лайке */
 .like-wrapper.liked .like-icon .sparks {
   animation: sparks-fade 0.3s ease-in 0.3s forwards;
-}
-
-/* Быстрый возврат контура при снятии лайка */
-.like-wrapper:not(.liked) .like-icon {
-  transition: --heart-contour 0.1s linear;
 }
 
 /* Ключевые кадры */
@@ -125,14 +90,13 @@
   100% { opacity: 0; }
 }
 
-/* ---------- Фокус ---------- */
+/* Фокус для доступности */
 .like-icon:focus-visible {
-  outline: 2px solid var(--button-focus-outline);
+  outline: 2px solid var(--button-focus-outline, #000);
   outline-offset: 2px;
 }
 
 /* ========== FALLBACK ДЛЯ СТАРЫХ БРАУЗЕРОВ ========== */
-/* Если браузер не поддерживает кастомные свойства, используем классические transition для fill */
 @supports not (--heart-core: transparent) {
   .like-icon .core,
   .like-icon .main-body,
@@ -142,41 +106,14 @@
 
   .like-icon:hover .core,
   .like-icon:hover .main-body {
-    fill: var(--contour-color, #000);
-  }
-
-  .like-icon:active .core,
-  .like-icon:active .main-body {
-    fill: var(--animation-fill-color, #f00);
-  }
-
-  .like-wrapper.liked .like-icon .core,
-  .like-wrapper.liked .like-icon .main-body,
-  .like-wrapper.liked .like-icon .contour {
-    fill: var(--animation-fill-color, #f00);
-  }
-
-  /* Отключаем transition на кастомные свойства, которые не поддерживаются */
-  .like-icon {
-    transition: none;
-  }
-}
-
-/* Дополнительный fallback для IE (где нет CSS-переменных) – используем конкретные цвета */
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .like-icon .core,
-  .like-icon .main-body,
-  .like-icon .contour {
-    transition: none;
-  }
-  .like-icon:hover .core,
-  .like-icon:hover .main-body {
     fill: #000;
   }
+
   .like-icon:active .core,
   .like-icon:active .main-body {
     fill: #f00;
   }
+
   .like-wrapper.liked .like-icon .core,
   .like-wrapper.liked .like-icon .main-body,
   .like-wrapper.liked .like-icon .contour {
