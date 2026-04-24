@@ -1,7 +1,6 @@
 /* Лейбл поверх изображения */
 .card__label {
   position: absolute;
-  opacity: 0.5;
   top: 20px;
   right: 20px;
   margin: 0;
